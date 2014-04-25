@@ -23,21 +23,22 @@ f1op= f1op.*(f1(1)-f1(-1));
 f2op= ones(1,length(x));
 f2op=f2op.*(f2i(5)-f2i(-5));
 
-f1RTrap = (f1Trap - f1op)./f1op;
-f1RSimp = (f1Simp - f1op)./f1op;
+f1RTrap = abs((f1Trap - f1op)./f1op);
+f1RSimp = abs((f1Simp - f1op)./f1op);
 
-f2RTrap = (f2Trap - f2op)./f2op;
-f2RSimp = (f2Simp - f2op)./f2op;
-
-figure
-semilogx(x, f1RTrap, '-b');
-hold on;
-semilogx(x, f1RSimp, '--b');
+f2RTrap = abs((f2Trap - f2op)./f2op);
+f2RSimp = abs((f2Simp - f2op)./f2op);
 
 figure
-semilogx(x, f2RTrap, '-r');
+subplot(1,2,1);
+loglog(x, f1RTrap, '-b');
 hold on;
-semilogx(x, f2RSimp, '--r');
+loglog(x, f1RSimp, '--b');
+
+subplot(1,2,2);
+loglog(x, f2RTrap, '-r');
+hold on;
+loglog(x, f2RSimp, '--r');
 
 
 
@@ -51,4 +52,3 @@ semilogx(x, f2RSimp, '--r');
 % loglog(x,f1op,'-g');
 % 
 % 
-

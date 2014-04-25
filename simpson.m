@@ -1,12 +1,15 @@
 function I=simpson(f,a,b,n)
-    h = (b-a)/n;
-    s=(f(a)-f(b));
+    g = (b-a)/n; % grootte van een deelinterval
+    x = a:g:b;
+    fx = f(x);
     
-    for i=1:2:n
-        s=s+ 4*f(a+i*h);
+    h = ((b-a)/n)/3;
+    s=0;
+    
+    for j = 1:n/2
+        i = 2*j + 1;
+        s = s + fx(i-2) + 4*fx(i-1) + fx(i);
     end
-    for i=2:2:n-1
-        s=s+2*f(a+i*h);
-    end
-    I= s*h/3;
+    
+    I = s*h;
     
