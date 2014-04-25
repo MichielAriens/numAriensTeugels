@@ -2,12 +2,7 @@ f1= @(x) exp(x);
 f2= @(x) 1./(1+x.^2);
 f2i= @(x) atan(x);
 n=3;
-a1=-1;
-b1=1;
-a2=-5;
-b2=5;
-h1=(b1-a1)./x;
-h2=(b2-a2)./x;
+
 x=round(logspace(1,n,200));
 
 f1Trap= zeros(1,length(x));
@@ -16,10 +11,10 @@ f2Trap = zeros(1,length(x));
 f2Simp = zeros(1,length(x));
 for j=1:length(x);
 	i=x(j);
-    f1Trap(j)=trapezium(f1,a1,b1,i);
-    f1Simp(j)=simpson(f1,a1,b1,i);
-    f2Trap(j)=trapezium(f2,a2,b2,i);
-    f2Simp(j)=simpson(f2,a2,b2,i);
+    f1Trap(j)=trapezium(f1,-1,1,i);
+    f1Simp(j)=simpson(f1,-1,1,i);
+    f2Trap(j)=trapezium(f2,-5,5,i);
+    f2Simp(j)=simpson(f2,-5,5,i);
 end
 %bererekenen van waarde integraal functie 1
 f1op=ones(1,length(x));
@@ -40,14 +35,11 @@ subplot(1,2,1);
 loglog(x, f1RTrap, '-b');
 hold on;
 loglog(x, f1RSimp, '--b');
-loglog(x,h1,'-r');
-
 
 subplot(1,2,2);
-loglog(x, f2RTrap, '-b');
+loglog(x, f2RTrap, '-r');
 hold on;
-loglog(x, f2RSimp, '--b');
-loglog(x,h2,'-r');
+loglog(x, f2RSimp, '--r');
 
 
 
