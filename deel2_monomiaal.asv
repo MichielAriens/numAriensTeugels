@@ -17,6 +17,6 @@
         poly = @(x) polyval(fliplr(a),x);
         e(i) = abs(quad(f,-1,1,1e-8) - quad(poly,-1,1,1e-8));
     end
-%d)
+%
     
     
