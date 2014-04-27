@@ -1,0 +1,18 @@
+function [A,b] = stelsel_monomiaal(f,n)
+    A = zeros(n);   % n x n matrix
+    b = zeros(n,1);  % n x 1 vector
+    
+    % Build A
+    for i = 1:n
+        for j = i:n
+            integrand = @(x) x.^(i-1) * x.^(j-1); %The integrand
+            A(i,j) = quad(intgrand, -1, 1)
+        end
+    end
+    
+    %build b
+    for i = 1:n
+        
+    end
+end
+
