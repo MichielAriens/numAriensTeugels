@@ -16,7 +16,14 @@
         %bereken de fout ||f - g||
         poly = @(x) polyval(fliplr(a),x);
         e(i) = abs(quad(f,-1,1,1e-8) - quad(poly,-1,1,1e-8));
+        
+        figure
+        plot()
+        hold on;
+        
     end
-%
     
+%d) Plot de fout ifv de graad. 
+    k = waitforbuttonpress ;
+    plot(e)
     
