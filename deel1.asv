@@ -35,21 +35,20 @@ f1RSimp = abs((f1Simp - f1op)./f1op);
 f2RTrap = abs((f2Trap - f2op)./f2op);
 f2RSimp = abs((f2Simp - f2op)./f2op);
 
-h1=(b1-a1)./x;
+h1=
 figure
 subplot(1,2,1);
-loglog(h1, f1RTrap, '-b');
+loglog(x, f1RTrap, '-b');
 hold on;
-loglog(h1, f1RSimp, '--b');
-loglog(h1,h1,'-r');
-loglog(h1,(h1.^4)./90,'-g');
+loglog(x, f1RSimp, '--b');
+loglog(x,h1,'-r');
 
-h2=(b2-a2)./x;
+
 subplot(1,2,2);
-loglog(h2, f2RTrap, '-b');
+loglog(x, f2RTrap, '-b');
 hold on;
-loglog(h2, f2RSimp, '--b');
-loglog(h2,h2,'-r');
+loglog(x, f2RSimp, '--b');
+loglog(x,h2,'-r');
 
 
 
