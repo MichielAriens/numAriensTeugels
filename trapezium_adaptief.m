@@ -1,6 +1,9 @@
 function I = trapezium_adaptief(f,a,b,e )
-    t1=trapezium(f,a,b,2);
-    t2=trapezium(f,a,b,3);
+    % I1 en I2 berekenen met trapezium-regel met 2 en 3 punten, dit komt neer op de trapezium-regel uitvoeren met 1 en 2 deelintervallen
+    t1=trapezium(f,a,b,1);
+    t2=trapezium(f,a,b,2);
+    
+    %oplossing berekenen
     if abs(t1-t2)<e
         I=t2;
     else
