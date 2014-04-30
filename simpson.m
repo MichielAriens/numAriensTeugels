@@ -1,6 +1,5 @@
 function I=simpson(f,a,b,n)
-    % grootte van een deelinterval
-    g = (b-a)/n; 
+    
     
     %kijken of een van de eindpunten oneindig is en zo ja dit probleem verhelpen
     if ~finity(f(a))
@@ -9,6 +8,9 @@ function I=simpson(f,a,b,n)
     if ~finity(f(b))
         b=b-eps(b);
     end
+    
+    % grootte van een deelinterval
+    g = (b-a)/n; 
     
     %functiewaarden voor grenzen deelintervallen berekenen
     x = a:g:b;
