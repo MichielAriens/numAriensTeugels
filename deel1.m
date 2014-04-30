@@ -59,11 +59,11 @@ f1op= f1op.*(f1(1)-f1(-1));
 f2op= ones(1,length(x));
 f2op=f2op.*(f2i(5)-f2i(-5));
 
-% absolute waarde van de relatieve fout berekenen;
-f1RTrap = abs((f1Trap - f1op)./f1op);
-f1RSimp = abs((f1Simp - f1op)./f1op);
-f2RTrap = abs((f2Trap - f2op)./f2op);
-f2RSimp = abs((f2Simp - f2op)./f2op);
+% absolute waarde van de absolute fout berekenen;
+f1RTrap = abs(f1Trap - f1op);
+f1RSimp = abs(f1Simp - f1op);
+f2RTrap = abs(f2Trap - f2op);
+f2RSimp = abs(f2Simp - f2op);
 
 
 %h1=(b1-a1)./x;
@@ -71,7 +71,7 @@ f2RSimp = abs((f2Simp - f2op)./f2op);
 %plotten van de verschillende grafieken
 figure
 subplot(1,2,1);
-title(' absolute waarde relatieve fout van trapezium- en simpson-regel integratie voor exp(x)');
+title(' absolute waarde absolute fout van trapezium- en simpson-regel integratie voor exp(x)');
 legend('trapezium-regel','simpson-regel',h^1,h^4);
 xlabel('grootte van deelintervallen');
 ylabel('absolute waarde relatieve fout');
@@ -83,7 +83,7 @@ loglog(h1,(h1.^4)./90,'-g');
 
 h2=(b2-a2)./x;
 subplot(1,2,2);
-title('absolute waarde reatieve fout van trapezium- en simpson-regel integratie voor 1./(1+x.^2)');
+title('absolute waarde absolute fout van trapezium- en simpson-regel integratie voor 1./(1+x.^2)');
 legend('trapzium-regel',(simpson-regel',h^1,h^4);
 xlabel('grootte van deelintervallen');
 ylabel('absolute waarde relatieve fout');
