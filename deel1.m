@@ -65,9 +65,6 @@ f1RSimp = abs(f1Simp - f1op);
 f2RTrap = abs(f2Trap - f2op);
 f2RSimp = abs(f2Simp - f2op);
 
-
-%h1=(b1-a1)./x;
-
 %plotten van de verschillende grafieken
 figure
 subplot(1,2,1);
