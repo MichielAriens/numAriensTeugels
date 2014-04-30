@@ -1,8 +1,13 @@
 function I=simpson(f,a,b,n)
     g = (b-a)/n; % grootte van een deelinterval
     x = a:g:b;
+    if ~finity(f(a))
+        a=a+eps(a);
+    end
+    if ~finity(f(b))
+        b=b-eps(b);
+    end
     fx = f(x);
-    
     h = ((b-a)/n)/3;
     s=0;
     
