@@ -1,7 +1,7 @@
 n = 20
-dA = zeros(n,1)
-db = zeros(n,1)
-da = zeros(n,1)
+dA = zeros(n,1);
+db = zeros(n,1);
+da = zeros(n,1);
 
 for i = 1:n
     [A1,b1] = stelsel_monomiaal(@(x) exp(x),i);
@@ -17,5 +17,5 @@ end
 
 x = 1:n;
 clf;
-semilogy(x,dA,x,db,x,da);
+loglog(x,dA,x,db);
 
