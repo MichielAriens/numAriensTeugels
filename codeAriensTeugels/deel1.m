@@ -121,7 +121,7 @@ end
 e=eDomein;
 h=nthroot(90.*e,5);
 hbegin= b2-a2;
-stappen=log(hbegin./h)./log(4);
+stappen=log(hbegin./h)./log(2);
 stappen=round(stappen);
 tSimp=2.^stappen-1;
 %berekenen theoretische uitvoertijd quad
@@ -130,10 +130,9 @@ tSimp=tSimp.*0.0008;
 
 %theoretische uitvoertijd berekenen trapezium
 e=eDomein;
-%h=sqrt(12.*e);
-h=nthroot(12.*e,3)
+h=nthroot(12.*e,3);
 hbegin= b2-a2;
-stappen=log(hbegin./h)./log(2);
+stappen=log(hbegin./h)./log(4);
 stappen=round(stappen);
 tTrap=2.^stappen-1;
 tTrap=tTrap.*0.00008;

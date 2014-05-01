@@ -2,7 +2,7 @@ function [A,b] = stelsel_monomiaal(f,n)
     n = n+1;
     A = zeros(n);   % n x n matrix
     b = zeros(n,1);  % n x 1 vector
-    err = 1e-8
+    err = 1e-8;
     
     % Build A
     for i = 1:n
