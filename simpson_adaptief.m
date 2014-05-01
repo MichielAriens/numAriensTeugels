@@ -1,10 +1,10 @@
 function I = simpson_adaptief(f,a,b,e )
 
     %kijken of een van de eindpunten oneindig is en zo ja dit probleem verhelpen
-    if ~finity(f(a))
+    if ~isfinite(f(a))
         a=a+eps(a);
     end
-    if ~finity(f(b))
+    if ~isfinite(f(b))
         b=b-eps(b);
     end
     

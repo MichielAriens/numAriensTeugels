@@ -1,10 +1,10 @@
 function I = trapezium_adaptief(f,a,b,e )
     
     %kijken of een van de eindpunten oneindig is en zo ja dit probleem verhelpen
-    if ~isfinite(f(a))
+    if ~finity(f(a))
         a=a+eps(a);
     end
-    if ~isfinite(f(b))
+    if ~finity(f(b))
         b=b-eps(b);
     end
     
