@@ -66,6 +66,8 @@ f1RSimp = abs(f1Simp - f1op);
 f2RTrap = abs(f2Trap - f2op);
 f2RSimp = abs(f2Simp - f2op);
 
+
+
 %plotten van de verschillende grafieken
 figure
 subplot(1,2,1);
@@ -81,9 +83,8 @@ legend('trapezium-regel','simpson-regel','h^1','h^2','h^4','Location','SouthEast
 xlabel('grootte van deelintervallen');
 ylabel('absolute waarde relatieve fout');
 
-%h2=(b2-a2)./x;
-subplot(1,2,2);
 
+subplot(1,2,2);
 loglog(h2, f2RTrap, '-k');
 hold on;
 loglog(h2, f2RSimp, '--g');
@@ -116,13 +117,38 @@ for m=1:length(eDomein);
 	tijdperE_Quad(m)=uitQuad/num_tijdsmetingen;
 end
 
+%theoretische uitvoertijd berekenen simpson
+e=eDomein;
+h=nthroot(90.*e,5);
+hbegin= b2-a2;
+stappen=log(hbegin./h)./log(4);
+stappen=round(stappen);
+tSimp=2.^stappen-1;
+%berekenen theoretische uitvoertijd quad
+tQuad=tSimp*0.0005;
+tSimp=tSimp.*0.0008;
+
+%theoretische uitvoertijd berekenen trapezium
+e=eDomein;
+%h=sqrt(12.*e);
+h=nthroot(12.*e,3)
+hbegin= b2-a2;
+stappen=log(hbegin./h)./log(2);
+stappen=round(stappen);
+tTrap=2.^stappen-1;
+tTrap=tTrap.*0.00008;
+
 %plotten van uitkomsten van de gemiddelde tijdsmetingen voor verschillende e-waarden.
 figure
 loglog(eDomein,tijdperE_Trap,'-b');
 hold on;
 loglog(eDomein,tijdperE_Simpson,'-r');
 loglog(eDomein,tijdperE_Quad,'g');
+loglog(eDomein,tTrap,'-k');
+loglog(eDomein,tSimp,'--k');
+loglog(eDomein,tQuad,'-m');
 title('tijdsmetingen afhankelijk van de waarde van e');
-legend('trapezium adaptief','simpson adaptief','quad','Location','SouthEast');
+legend('trapezium adaptief','simpson adaptief','quad','theoretisch trapezium','theoretisch Simp','theoretisch quad','Location','SouthWest');1
 xlabel('waarde van e');
 ylabel('gemiddelde gemeten tijd');
+
