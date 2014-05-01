@@ -19,3 +19,5 @@ x = 1:n;
 clf;
 loglog(x,dA,x,db);
 
+cond(A1)
+
